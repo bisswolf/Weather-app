@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+.input {
+  border-radius: 0.7em;
+  border-color: greenyellow;
+  border-width: 4px;
+  text-align: center;
+  justify-content: flex-end;
+  width: 40em;
+  height: 2em;
+  outline: none;
+}
+.navbar-expand {
+  justify-content: space-around !important;
+  font-family: "Roboto", sans-serif;
+}
