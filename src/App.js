@@ -4,7 +4,6 @@ import Api1 from "./components/Api1";
 import Nav from "./UI/Nav";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
-import Card from "./UI/Card";
 function App() {
   const [isValid, setIsValid] = useState(true);
   const submitHandler = () => {

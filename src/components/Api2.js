@@ -1,6 +1,5 @@
 import { useEffect, useCallback, useState } from "react";
 import Card from "../UI/Card";
-import LoadingSpinner from "../UI/LoadingSpinner";
 
 const Api2 = (props) => {
   const [currentWeather, setCurrentWeather] = useState(null);
@@ -35,26 +34,7 @@ const Api2 = (props) => {
 
   return (
     <div>
-      {currentWeather === null || typeof currentWeather !== "undefined" ? (
-        // <LoadingSpinner />
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "2rem",
-          }}
-        >
-          <div
-            style={{
-              color: "purple",
-              fontSize: "4rem",
-              fontWeight: "bold",
-            }}
-          >
-            Error
-          </div>
-        </div>
-      ) : (
+      {currentWeather !== null && typeof currentWeather !== "undefined" ? (
         <div
           style={{
             display: "flex",
@@ -63,10 +43,10 @@ const Api2 = (props) => {
           }}
         >
           <Card>
-            <div>Api2:-</div>
-
             {valid && (
               <div>
+                <div>{currentWeather.data[0].city_name}</div>
+                <br />
                 Current Temprature: {currentWeather.data[0].temp} °C
                 <br />
                 Feel's like: {currentWeather.data[0].app_temp} °C
@@ -83,6 +63,24 @@ const Api2 = (props) => {
               </div>
             )}
           </Card>
+        </div>
+      ) : (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "2rem",
+          }}
+        >
+          <div
+            style={{
+              color: "purple",
+              fontSize: "4rem",
+              fontWeight: "bold",
+            }}
+          >
+            Error
+          </div>
         </div>
       )}
     </div>

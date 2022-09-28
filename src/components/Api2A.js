@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Card from "../UI/Card";
-import LoadingSpinner from "../UI/LoadingSpinner";
 
 const Api2A = (props) => {
   const [currentWeather, setCurrentWeather] = useState(null);
@@ -28,11 +27,19 @@ const Api2A = (props) => {
 
   return (
     <div>
-      {currentWeather === null || typeof currentWeather != "undefined" ? (
+      {currentWeather === null || typeof currentWeather === "undefined" ? (
         <div />
       ) : (
         <div>
-          <div>Api2A:-</div>
+          <div
+            style={{
+              color: "yellow",
+              fontSize: "3rem",
+              fontWeight: "bold",
+            }}
+          >
+            Next 15 day forcast
+          </div>
 
           <div
             style={{

@@ -2,11 +2,11 @@ import { Navbar } from "react-bootstrap";
 import { useState } from "react";
 import Api2A from "../components/Api2A";
 import Api2 from "../components/Api2";
+import Button from "react-bootstrap/Button";
 import "./Nav.css";
 const Nav = (props) => {
   const [myVal, setMyVal] = useState("");
   let [isValid, setIsValid] = useState(false);
-  // const [currentWeather, setCurrentWeather] = useState(null);
 
   const req = function (abc) {
     const options = {
@@ -32,11 +32,7 @@ const Nav = (props) => {
     req(event.target[0].value);
     setIsValid(true);
   };
-  // console.log(myVal);
-  // const nameInput = (event) => {
-  //   // console.log(event.target.value);
-  //   setIsValid(false);
-  // };
+
   const validChanger = () => {
     setIsValid(false);
   };
@@ -52,7 +48,9 @@ const Nav = (props) => {
               placeholder="Search"
               defaultValue=""
             />
-            <button type="submit">Search</button>
+            <Button variant="success" type="submit" size="sm">
+              Search
+            </Button>{" "}
           </form>
         </div>
       </Navbar>
@@ -70,10 +68,6 @@ const Nav = (props) => {
           />
         </div>
       ) : (
-        // <div>
-        //   <p>{console.log(myVal[0])}</p>
-        //   {/* <p>{console.log(myVal[0].lon)}</p> */}
-        // </div>
         <div />
       )}
     </div>
