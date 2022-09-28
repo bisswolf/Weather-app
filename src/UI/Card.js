@@ -4,12 +4,10 @@ import Card from "react-bootstrap/Card";
 const Cards = (props) => {
   return (
     <Card className="background">
-      <Card.Header>Featured</Card.Header>
+      <Card.Header>{props.id}</Card.Header>
       <Card.Body>
-        <Card.Title>Special title treatment{props.children}</Card.Title>
-        <Card.Text>
-          With supporting text below as a natural lead-in to additional content.
-        </Card.Text>
+        <Card.Title>{props.children}</Card.Title>
+        <Card.Text></Card.Text>
       </Card.Body>
     </Card>
   );

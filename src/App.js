@@ -12,15 +12,14 @@ function App() {
   };
   return (
     <div className="App">
-      {/* {isValid === true ? (
+      {isValid === true ? (
         <div onChange={submitHandler}>
           <Nav />
           <Api1 />
         </div>
       ) : (
         <Nav />
-      )} */}
-      <Card />
+      )}
     </div>
   );
 }

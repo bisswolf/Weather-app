@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
+import LoadingSpinner from "../UI/LoadingSpinner";
 import Api2 from "./Api2";
 import Api2A from "./Api2A";
 const Api1 = () => {
@@ -30,15 +31,16 @@ const Api1 = () => {
   return (
     <div>
       {!gotLocation ? (
-        <div></div>
+        <div>
+          <LoadingSpinner />
+        </div>
       ) : (
         <div>
-          <div>Api1:-{gotLocation.city}</div>
-
           <Api2
             latitude={gotLocation.latitude}
             longitude={gotLocation.longitude}
           />
+
           <Api2A
             latitude={gotLocation.latitude}
             longitude={gotLocation.longitude}

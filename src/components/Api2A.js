@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "../UI/Card";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
 const Api2A = (props) => {
   const [currentWeather, setCurrentWeather] = useState(null);
@@ -27,35 +28,40 @@ const Api2A = (props) => {
 
   return (
     <div>
-      {!currentWeather ? (
-        <div></div>
+      {currentWeather === null || typeof currentWeather != "undefined" ? (
+        <div />
       ) : (
         <div>
           <div>Api2A:-</div>
-          <ol>
+
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "space-around",
+            }}
+          >
             {currentWeather.data.map((forcast) => (
               <div key={forcast.datetime}>
-                <Card>
-                  <li>
-                    Temprature:
-                    {forcast.high_temp}
-                    <div />
-                    {/* Humidity:-{forcast.humidity} */}
-                  </li>
+                <Card id={forcast.datetime}>
+                  Min Temprature:
+                  {forcast.min_temp}
+                  <br />
+                  Max Temprature:
+                  {forcast.max_temp}
+                  <br />
+                  Wind: {(forcast.wind_spd * 3.6).toFixed(2)} km/h{" "}
+                  {forcast.wind_cdir}
+                  <br />
+                  Humidity: {forcast.rh} %
+                  <br />
+                  Visibility: {Math.ceil(forcast.vis)} km
+                  <br />
+                  Pressure: {(forcast.pres / 1000).toFixed(2)} bar
                 </Card>
               </div>
             ))}
-          </ol>
-          {/* <ol>
-						{currentWeather.list.map((forcast) => (
-							<li key={forcast.dt}>
-								Temprature:-
-								{Math.round(
-									(forcast.temp.average - 273.15 + Number.EPSILON) * 100
-								) / 100}
-							</li>
-						))}
-					</ol> */}
+          </div>
         </div>
       )}
     </div>
