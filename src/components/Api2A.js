@@ -4,13 +4,7 @@ import Card from "../UI/Card";
 const Api2A = (props) => {
   const [currentWeather, setCurrentWeather] = useState(null);
   useEffect(() => {
-    const options = {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": "63df04295bmsh575e8ddf725c6c5p16f692jsnc2dd1ebb0930",
-        "X-RapidAPI-Host": "weatherbit-v1-mashape.p.rapidapi.com",
-      },
-    };
+    
 
     fetch(
       `https://weatherbit-v1-mashape.p.rapidapi.com/forecast/daily?lon=${props.longitude}&lat=${props.latitude}`,
